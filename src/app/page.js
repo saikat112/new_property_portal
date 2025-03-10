@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Properties</h1>
+      <h1>Hot property</h1>
       {status === "loading" && <p>Loading...</p>}
       {status === "failed" && <p style={{color: "red"}}>⚠️ Failed to fetch properties.</p>}
       <ul>

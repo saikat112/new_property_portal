@@ -1,7 +1,7 @@
 "use client";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import NavBar from "@/components/navbar/NavBar";
+import NavBar from "@/app/components/navbar/NavBar";
 
 export default function Layout({ children }) {
   return (
