@@ -1,0 +1,5 @@
+run migration = npx prisma migrate dev --name init
+              = npx prisma generate
+
+demo data insert = npm run prisma:seed
+To check in database data = npx prisma studio
