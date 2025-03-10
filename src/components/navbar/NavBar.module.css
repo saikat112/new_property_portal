@@ -1,0 +1,73 @@
+/* Navbar Container */
+.navbar {
+    background-color: #333;
+    padding: 15px 20px;
+  }
+
+  /* Navbar Inner Container */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Logo Styling */
+  .logo {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /* Navigation Menu */
+  .menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* Navigation Links */
+  .navItem {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .navItem:hover {
+    color: #ffcc00;
+  }
+
+  /* Hamburger Menu Button */
+  .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Mobile Menu */
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #444;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .menu.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
