@@ -1,4 +1,11 @@
 /* Navbar Container */
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
     background-color: #333;
     padding: 15px 20px;

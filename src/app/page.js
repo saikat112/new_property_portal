@@ -2,6 +2,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProperties } from "../store/propertySlice";
+import "./page.css";
+
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -13,7 +15,12 @@ export default function Home() {
   }, [dispatch]);
 
   return (
+
     <div>
+      <div className="banner">
+        <h1>Find Your Dream Home</h1>
+      </div>
+      <div>
       <h1>Hot property</h1>
       {status === "loading" && <p>Loading...</p>}
       {status === "failed" && <p style={{color: "red"}}>⚠️ Failed to fetch properties.</p>}
@@ -27,6 +34,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }
