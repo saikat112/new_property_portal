@@ -1,40 +1,63 @@
-"use client";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProperties } from "../store/propertySlice";
+"use client"; // Ensure it's a client component
+import { useEffect, useState } from "react";
+import PropertyCard from "../app/components/cards/PropertyCard/PropertyCard";
 import "./page.css";
 import SearchBar from "@/app/components/searchBar/SearchBar";
 
-
 export default function Home() {
-  const dispatch = useDispatch();
-  const { properties, status } = useSelector((state) => state.property);
+  const [hotProperties, setHotProperties] = useState([]);
+  const [newlyLaunchedProperties, setNewlyLaunchedProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Fetching properties...");
-    dispatch(fetchProperties());
-  }, [dispatch]);
+    async function fetchData() {
+      try {
+        const hotRes = await fetch("/api/properties?category=hot_property");
+        const hotData = await hotRes.json();
+        setHotProperties(hotData);
+
+        const newRes = await fetch("/api/properties?category=newly_launched_property");
+        const newData = await newRes.json();
+        setNewlyLaunchedProperties(newData);
+
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
-
     <div>
+      {/* Banner Section */}
       <div className="banner">
         <SearchBar />
       </div>
-      <div>
-      <h1>Hot property</h1>
-      {status === "loading" && <p>Loading...</p>}
-      {status === "failed" && <p style={{color: "red"}}>⚠️ Failed to fetch properties.</p>}
-      <ul>
-        {properties.map((property) => (
-          <li key={property.id}>
-            <img src={property.imageUrl} alt={property.title} width="100" />
-            <h3>{property.title}</h3>
-            <p>Price: ${property.price}</p>
-            <p>Location: {property.location}</p>
-          </li>
-        ))}
-      </ul>
+
+      {/* Hot Properties Section */}
+      <div className="property-section">
+        <h2>🔥 Hot Properties</h2>
+        {loading ? <p>Loading...</p> : (
+          <div className="property-list">
+            {hotProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} category="hot_property" />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Newly Launched Properties Section */}
+      <div className="property-section">
+        <h2>🌟 Newly Launched Properties</h2>
+        {loading ? <p>Loading...</p> : (
+          <div className="property-list">
+            {newlyLaunchedProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} category="newly_launched_property" />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

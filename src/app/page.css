@@ -7,3 +7,19 @@
     justify-content: center;
     position: relative;
 }
+.property-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .property-list::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .property-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+  }

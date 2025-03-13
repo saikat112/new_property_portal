@@ -6,29 +6,25 @@ async function main() {
   await prisma.property.createMany({
     data: [
       {
-        title: "Luxury Villa",
-        price: 500000,
-        location: "Los Angeles",
-        imageUrl: "https://via.placeholder.com/150",
+        title: "Fortune Heights",
+        developer: "Fortune Park Housing",
+        type: "2, 3, 4 BHK",
+        location: "Barasat, Kolkata",
+        category: "hot_property",
+        minPrice: "₹37.0 L",
+        maxPrice: "₹1.12 Cr",
+        imageUrl: "https://dummyimage.com/150x100/000/fff"
       },
       {
-        title: "Modern Apartment",
-        price: 250000,
-        location: "New York",
-        imageUrl: "https://via.placeholder.com/150",
-      },
-      {
-        title: "Cozy Cottage",
-        price: 180000,
-        location: "San Francisco",
-        imageUrl: "https://via.placeholder.com/150",
-      },
-      {
-        title: "Beachfront Bungalow",
-        price: 700000,
-        location: "Miami",
-        imageUrl: "https://via.placeholder.com/150",
-      },
+        title: "Shree Heights",
+        developer: "Dream Royally LLP",
+        type: "2, 3 BHK",
+        location: "Chandannagar, Hooghly",
+        category: "hot_property",
+        minPrice: "₹44.2 L",
+        maxPrice: "₹65.4 L",
+        imageUrl: "https://dummyimage.com/150x100/007bff/fff"
+      }
     ],
   });
 
