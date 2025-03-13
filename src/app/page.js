@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProperties } from "../store/propertySlice";
 import "./page.css";
+import SearchBar from "@/app/components/searchBar/SearchBar";
 
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
     <div>
       <div className="banner">
-        <h1>Find Your Dream Home</h1>
+        <SearchBar />
       </div>
       <div>
       <h1>Hot property</h1>
