@@ -40,7 +40,7 @@
 /* Responsive */
 @media (max-width: 600px) {
     .searchContainer {
-        flex-direction: column;
+        flex-direction: flex;
         gap: 8px;
     }
 
@@ -49,6 +49,6 @@
     }
 
     .searchButton {
-        width: 100%;
+        width: 30%;
     }
 }
