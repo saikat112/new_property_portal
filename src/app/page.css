@@ -10,10 +10,12 @@
 
 .property-list {
   display: flex;
-  flex-wrap: nowrap;
   overflow-x: auto;
   gap: 10px; /* Reduce gap for smaller screens */
   padding: 8px; /* Adjust padding for smaller screens */
+  width: 100vw;
+  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .property-list::-webkit-scrollbar {
@@ -44,8 +46,9 @@
 
   .property-list {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 5px; /* Minimal gap for very small screens */
       padding: 4px;
+      width: 100vw;
   }
 }
